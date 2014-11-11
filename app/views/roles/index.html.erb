@@ -20,15 +20,15 @@
     <% @roles.each do |role| %>
       <tr>
         <td><%= role.character_name %></td>
-        <td><%= role.movie_id %></td>
-        <td><%= role.actor_id %></td>
+        <td><%= @movies.find(role.movie_id)[:title] %></td>
+        <td><%= @actors.find(role.actor_id)[:name] %></td>
         <td>
           <a href="/roles/<%= role.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
         </td>
         <td>
-          <a href="/roles/id/edit_form" class="btn btn-warning">
+          <a href="/roles/<%= role.id %>/edit_form" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
         </td>
